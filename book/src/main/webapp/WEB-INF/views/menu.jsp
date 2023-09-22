@@ -1,6 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+	<script type="text/javascript">
+	
+		function kakaoLogout(){
+			location.href="https://kauth.kakao.com/oauth/logout?client_id=3ecca13d973c6d11e752a114a1e14922&logout_redirect_uri=http://localhost/logout/kakao";
+			window.location.href = "/logout";
+		}
+		
+		function naverLogout(){
+			window.location.href = "https://nid.naver.com/nidlogin.logout";
+		}
+		
+		// 로그아웃 진행
+		function Logout(){
+			
+			if(${sessionScope.withN eq 2}){	// 네이버로그아웃 이후 로그아웃실행 
+				naverLogout();
+			} else if(${sessionScope.withK eq 1}){ // 카카오로그아웃 이후 로그아웃실행 
+				kakaoLogout();
+				return false;
+			} 
+				window.location.href = "/logout";	// 일반로그아웃
+		}
+		
+	</script>
+
       <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
              <ul class="nav navbar-nav navbar-right" style="margin-right: -10%;">
@@ -88,7 +113,7 @@
 	              </c:when>
 	              <c:otherwise>
 	             	 <li class="dropdown"><a href="/cart">장바구니</a></li>
-	             	 <li class="dropdown"><a href="/logout">로그아웃</a></li>
+	             	 <li class="dropdown"><a href=# onclick="Logout()">로그아웃</a></li>
 	              </c:otherwise>
               </c:choose>
             </ul>
