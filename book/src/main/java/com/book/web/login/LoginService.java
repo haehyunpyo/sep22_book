@@ -122,7 +122,8 @@ public class LoginService {
               JsonElement element = parser.parse(result);
               
               // 받아올값 : profile_nickname(닉네임), kakao_account(이메일)
-              Long id = element.getAsJsonObject().get("id").getAsLong();
+              Long idLong = element.getAsJsonObject().get("id").getAsLong();
+              String id = "kakao" + idLong;
               boolean hasEmail = element.getAsJsonObject().get("kakao_account").getAsJsonObject().get("has_email").getAsBoolean();
               
               if (hasEmail) {

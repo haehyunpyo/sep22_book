@@ -12,19 +12,27 @@ body{
     margin: auto; /*중앙 정렬*/
 	margin-top: 200px;
 	vertical-align:middle;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #C6C6C6;
 } 
+
+.LogoBox{
+	margin : 50px 0 40px 0;
+}
+#mainLogo{
+	vertical-align:middle;
+	border-radius: 50px;
+}
+
 .login-form{
 	vertical-align:middle;
-	margin-top: 30px;
 }
 .form-item{
 	text-align: center;
 }
 
 .form-item.idBox{
-	margin: 150px 20px 20px 20px;
+	margin: 50px 20px 20px 20px;
 	text-align: center;
 }
 

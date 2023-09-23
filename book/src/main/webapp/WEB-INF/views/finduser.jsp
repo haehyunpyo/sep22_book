@@ -56,7 +56,7 @@
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
-	<link href="../css/login.css" rel="stylesheet">
+	<link href="../css/finduser.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="./js/jquery-3.7.0.min.js"></script>
 	<script type="text/javascript">
@@ -76,7 +76,7 @@
 				} 
 				else {
 					memail = checkmail(check);
-					alert(memail);
+					//alert(memail);
 					
 				$.ajax({
 					url : "./findId",
@@ -88,7 +88,7 @@
 						if(data.count == 1){
 							
 				            let yourIdDiv = $("<div>").attr("id", "yourId").text("아이디는 \" " + data.mid + " \" 입니다.");
-				            $(".tab-content").hide(); 		// 모든 .tab-content 요소 숨기기
+				            $("#fidBox").hide(); 		// 모든 .tab-content 요소 숨기기
 				            $("#fContainer").append(yourIdDiv); 	// 페이지에 추가
 
 				            yourIdDiv.css({
@@ -113,6 +113,20 @@
 			
 				}
 			});
+			
+			
+			$("#IDli").click(function(){
+				 let yourIdDiv = document.getElementById("yourId");
+				 yourIdDiv.style.display = "block"; 
+			});
+			
+			
+			$("#PWli").click(function(){
+				 let yourIdDiv = document.getElementById("yourId");
+				 yourIdDiv.style.display = "none"; 
+			});
+			
+			
 			
 			
 			$("#fpwbtn").click(function(){

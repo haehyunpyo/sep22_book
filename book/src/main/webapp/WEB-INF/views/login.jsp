@@ -183,7 +183,7 @@
 					delCookie("setY");
 					frmsubmit();
 					return false;
-				} 
+				}
 				
 				//login-form 최종제출
 		 		function frmsubmit(){
@@ -246,6 +246,11 @@
   <main>
 		<div class="main">
 	    <div class="Lcontainer" align="center">
+	    
+	    	<div class="LogoBox">
+	    		<img src="img/login/DongneBook_logo.png" alt="mainLogo" id="mainLogo" >
+	    	</div>
+	    
 			<div class="login-form" align="center">
 				<form action="./Glogin" method="post" id="frm">
 					<div class="form-item idBox">

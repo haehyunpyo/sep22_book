@@ -18,11 +18,13 @@ public class JoinController {
 	private JoinService joinService;
 
 	@GetMapping("/join")
-	public String join() {
-	  return "join"; 
+	public String join(HttpSession session) {
+		if(session.getAttribute("mid") != null) {
+			return "redirect:/main"; 
+		}
+		return "join"; 
 		}
 	
-
 	
 	
 	@PostMapping("/join")
@@ -30,32 +32,32 @@ public class JoinController {
 		//System.out.println("jsp에서 오는 값 : " + joinDTO);
 		
 		//System.out.println(joinDTO);
-		
-		int result = joinService.join(joinDTO);
-		//System.out.println(result);
-		
-	
-		String rand = UUID.randomUUID().toString();
-		String realrand = rand.substring(24,rand.length());
-		String welcome = "wel"+realrand;
-		String welcoupon = "웰컴 10%할인쿠폰";
-		joinDTO.setCocode(welcome);
-		joinDTO.setCocontent(welcoupon);
-		System.out.println(welcome);
-		
-		System.out.println(joinDTO);
-		
-		if(result == 1) {
-			
-		 int plz = joinService.num(joinDTO);
-		 System.out.println(plz);
+			int result = joinService.join(joinDTO);
+			//System.out.println(result);
 			
 			
-			return "redirect:/login";
+			String rand = UUID.randomUUID().toString();
+			String realrand = rand.substring(24,rand.length());
+			String welcome = "wel"+realrand;
+			String welcoupon = "웰컴 10%할인쿠폰";
+			joinDTO.setCocode(welcome);
+			joinDTO.setCocontent(welcoupon);
+			System.out.println(welcome);
+			
+			System.out.println(joinDTO);
+			
+			if(result == 1) {
+				
+				int plz = joinService.num(joinDTO);
+				System.out.println(plz);
+				
+				
+				return "redirect:/login";
+			}
+			return "redirect:/join";
+			
 		}
-		return "redirect:/join";
-	}
-	
+		
 	
 	//아이디 중복검사
 	@ResponseBody
@@ -68,7 +70,10 @@ public class JoinController {
 	
 	// 로그인연동 추가정보
 	@GetMapping("/subjoin")
-	public String subjoin() {
+	public String subjoin(HttpSession session) {
+		if(session.getAttribute("mid") != null) {
+			return "redirect:/main"; 
+		}
 		return "subjoin";
 	}
 	

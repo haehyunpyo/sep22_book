@@ -56,8 +56,72 @@
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
-    <link href="../css/userinfo.css" rel="stylesheet">
     <script src="./js//jquery-3.7.0.min.js"></script>
+    <style type="text/css">
+	    h2 {
+	       font-weight: bold; 
+	       font-size: 35px; 
+	       color: black;
+	       margin-bottom: 10px;
+	   }
+	   
+	   .userBox{
+	      box-sizing : border-box;
+	      margin: 100px auto;
+	      padding: 20px;
+	      font-size:15px;
+	      width: 700px;
+	   }
+	   
+	   input{
+	       background-color:white;
+	       width: 70%;
+	       height: 50px;
+	       border: none;
+	       border-bottom: 1px solid black;
+	       border-radius: 3px;
+	       outline:none;
+	       margin: 10px;
+	   }
+	   .noInfo{
+		   	opacity: 30%
+	   }
+	   
+	   label{
+	       margin: 17px 0px 17px 10px;
+	       padding-right: 10px;
+	       text-align: left;
+	       vertical-align: middle;
+	       width: 100px;
+	   }
+	   
+	   button{
+	      background-color: black;
+	      color: white;
+	      border: none;
+	      border-radius: 5px;
+	      padding: 10px 25px; 
+	      font-size: 16px;
+	      cursor: pointer;
+	      margin-top: 10px;
+	      float: left;
+	   }
+	   .autobtnBox, .editbtnBox{
+	      direction: column;
+	   }
+	   #toInfo{
+	   	float: right;
+	   	margin: 10px 40px 0px 0px;
+	   }
+	   
+	   #outauto{
+	   	float: left;
+	   	margin: 30px 30px 0 40px;
+	   	border-bottom: 1px gray solid;
+	   	color: gray;
+	   }
+	   
+    </style>
     
 <script type="text/javascript">
 
@@ -160,54 +224,54 @@ function naverLogout(){
   <%@ include file="menu.jsp"%>
     <main>
       <div class="main">
-
+		  <section class="module-small"></section>
+		  
          <div class="userBox" align="center">
                <h2>회원정보</h2>
             <div class="idBox">
                <label for="mid">아이디</label>
-               <input class="input" type="text" id="mid" value="${info.mid}" readonly />
+               <input type="text" id="mid" value="${info.mid}" readonly />
             </div>
             <div class="nameBox">
                <label for="mname">이름</label>
-               <input class="input" type="text" id="mname" value="${info.mname}" readonly />
+               <input type="text" id="mname" value="${info.mname}" readonly />
             </div>
             <div class="addrBox">
                <label for="maddr">주소</label>
-               <input class="input" type="text" id="maddr" value="${info.maddr}" readonly /><br>
+               <input type="text" id="maddr" value="${info.maddr}" readonly /><br>
             </div>
             <div class="brithBox">
                <label for="mbirth">생년월일</label>
-               <input class="input" type="date" id="mbirth" value="${info.mbirth}" readonly /><br>
+               <input type="date" id="mbirth" value="${info.mbirth}" readonly /><br>
             </div>
             <div class="phoneBox">
             <c:choose>
-               <c:when test="${info.mphone eq null}"> id : ${sessionScope.mid} _ 로그인완
+               <c:when test="${info.mphone eq null}">
                   <label for="mphone">전화번호 : </label>
-                  <input class="input" type="text" id="mphone" value="정보가 없습니다." readonly />
+                  <input class="noInfo" type="text" id="mphone" value="정보가 없습니다." readonly />
                </c:when>
                <c:otherwise>
                   <label for="mphone">전화번호</label>
-                  <input class="input" type="text" id="mphone" value="${info.mphone}" readonly />
+                  <input class="noInfo" type="text" id="mphone" value="${info.mphone}" readonly />
                </c:otherwise>
             </c:choose>
             </div>
             <div class="emailBox">
                <label for="memail">이메일주소</label>
-               <input class="input" type="text" id="memail" value="${info.memail}" readonly />
+               <input type="text" id="memail" value="${info.memail}" readonly />
             </div>
             <div class="btnBox">
             <div class="editbtnBox">
                <button type="button" id="toInfo">회원정보수정</button>
             </div>
             <div class="autobtnBox">
-      			<button type="button" id="outauto">자동로그인 해제</button>
-      			아이디 : ${sessionScope.mid} || mgrade : ${sessionScope.mgrade} || mno : ${sessionScope.mno}
+      			<a href="#" id="outauto">자동로그인 해제</a>
       		</div>
             </div>
 
          </div>
-                
-                
+        
+          <section class="module-small"></section>      
  <!-- --------------------------------------------------- 하단 풋---------------------------------------------------------------- -->
 
 			<footer class="footer bg-dark">

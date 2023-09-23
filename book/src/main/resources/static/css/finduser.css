@@ -9,10 +9,6 @@ body{
 	margin: 100px 10px 0 10px;
 }
 
-#fContainer{
-	margin-left: 500px; 
-}
-
 #tabBox{
 	height: 50%;
 	text-align: center;
@@ -26,8 +22,9 @@ body{
 #findID, #findPW, #fname, #fid{
 	margin: 20px;
 	box-sizing: border-box;
-	width: 320px;
-	height:45px; 
+	width: 360px;
+	height:45px;
+	text-transform: none;
 }
 
 .emailBox{
@@ -35,20 +32,32 @@ body{
 }
 
 #femail, #femail2{
-	width: 150px;
+	width: 190px;
 	box-sizing: border-box;
 	float: left;
 	margin: 5px 5px 20px 20px;
 	height:45px; 
+	text-transform: none;
 }
 
 #selectBox, #selectBox2 {
-	width: 160px;
+	width: 200px;
 	box-sizing: border-box;
 	float: right;
-	margin: 5px 20px 20px 5px;
-	height:45px; 
+	margin: 5px 10px 20px 5px;
+	height:45px;
+	text-transform: none;
 }
+
+#Opt, #Opt2, #naver2, #naver2, #gmail, #gmail2, #hanmail, #hanmail2, #kakao, #kakao2{
+	width: 200px;
+	box-sizing: border-box;
+	float: right;
+	margin: 5px 10px 20px 5px;
+	height:45px;
+	text-transform: none;
+}
+
 
 #fidBox, #fpwBox{
  	text-align: center;
@@ -64,7 +73,7 @@ body{
 	text-align: center;
 	box-sizing: border-box;
 	width: 250px;
-	margin-left: 55px;
+	margin-left: 90px;
 }
 
 #fidbtn, #fpwbtn{
